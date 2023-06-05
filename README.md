@@ -21,9 +21,10 @@ Experimental / Must Test
 
 ### Implementations
 Since this game just started developing this is a list of things that are/will be added
-- [ ] SpaceShip Movement
+- [x] SpaceShip Movement
 - [ ] Shooting
-- [ ] Link Cable Connecion
+- [x] Link Cable Connexion
+- [ ] Menu Screen
 
 ### Funny Quote
 This idea came to me in a dream I had.

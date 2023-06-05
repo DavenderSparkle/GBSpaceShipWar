@@ -58,4 +58,29 @@ void main()
     SHOW_SPRITES;
     SHOW_BKG;
     DISPLAY_ON;
+
+    waitpad(J_START);
+    while(1)
+    {
+        if(joypad() & J_LEFT) 
+        {
+            --player.x;
+            _io_out = player.x;
+            send_byte();
+        }
+        if(joypad() & J_RIGHT)
+        {
+            ++player.x;
+            _io_out = player.x;
+            send_byte();
+        }
+        
+        receive_byte();
+        enemy.x = _io_in;
+
+        move_sprite(0, player.x, player.y);
+        move_sprite(1, enemy.x, enemy.y);
+
+        delay(10);
+    }
 }
