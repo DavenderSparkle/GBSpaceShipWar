@@ -7,6 +7,7 @@
 #include "./sprites/chars.h"
 
 #include "gameCharacter.c"
+#include "linkManager.c"
 
 unsigned int i;
 
@@ -30,6 +31,9 @@ void setupEnemy()
     enemy.width = 8;
     enemy.height = 8;
     
+    enemX = enemy.x;
+    enemY = enemy.y;
+
     set_sprite_tile(1,1);
 }
 
@@ -62,25 +66,25 @@ void main()
     waitpad(J_START);
     while(1)
     {
+        UpdateMult();
+        
         if(joypad() & J_LEFT) 
         {
             --player.x;
-            _io_out = player.x;
-            send_byte();
+            ByteSend = InputLeft;
         }
         if(joypad() & J_RIGHT)
         {
             ++player.x;
-            _io_out = player.x;
-            send_byte();
+            ByteSend = InputRight;
         }
-        
-        receive_byte();
-        enemy.x = _io_in;
+        if(joypad() & J_UP)
+        {
+            --player.y;
+            ByteSend = InputUp;
+        }
 
         move_sprite(0, player.x, player.y);
-        move_sprite(1, enemy.x, enemy.y);
-
         delay(10);
     }
 }

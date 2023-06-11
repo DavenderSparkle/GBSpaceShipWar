@@ -19,11 +19,13 @@ Experimental / Must Test
 - Button A => Main Shoot
 - Button B => Back Shoot
 
-### Implementations
+## Implementations
 Since this game just started developing this is a list of things that are/will be added
 - [x] SpaceShip Movement
 - [ ] Shooting
 - [x] Link Cable Connexion
+- [x] Improved Link Cable Connexion (2 coords are functional now)
+- [ ] Add Map Collisions
 - [ ] Menu Screen
 
 ### Funny Quote
