@@ -20,13 +20,16 @@ Experimental / Must Test
 - Button B => Back Shoot
 
 ## Implementations
-Since this game just started developing this is a list of things that are/will be added
+List of features that are/will be added
 - [x] SpaceShip Movement
 - [ ] Shooting
+- [ ] Win/Lose conditions
 - [x] Link Cable Connexion
 - [x] Improved Link Cable Connexion (2 coords are functional now)
-- [ ] Add Map Collisions
+- [x] Add Map Collisions
 - [ ] Menu Screen
+- [ ] Fix Position Desync
+- [ ] Game Start when only 1 console hits "select"
 
 ### Funny Quote
 This idea came to me in a dream I had.
