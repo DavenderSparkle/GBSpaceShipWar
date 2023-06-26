@@ -10,9 +10,24 @@
 #include "linkManager.c"
 
 unsigned int i;
+const unsigned char blankMap[1] = {0x00};
 
 struct gameCharacter player;
 struct gameCharacter enemy;
+
+UBYTE canItMove(uint8_t px, uint8_t py)
+{
+    uint16_t indexTLx, indexTLy, tileIndexTL;
+    UBYTE result;
+
+    indexTLx = (px - 8)/8;
+    indexTLy = (py - 8)/8;
+    tileIndexTL = mapWidth * indexTLy + indexTLx;
+
+    result = mapPLN0[tileIndexTL] == blankMap[0];
+
+    return result;
+}
 
 void setupPlayer()
 {
@@ -68,12 +83,12 @@ void main()
     {
         UpdateMult();
         
-        if(joypad() & J_LEFT) 
+        if((joypad() & J_LEFT) && (canItMove(player.x-1, player.y)))
         {
             --player.x;
             ByteSend = InputLeft;
         }
-        if(joypad() & J_RIGHT)
+        if((joypad() & J_RIGHT) && (canItMove(player.x+8, player.y)))
         {
             ++player.x;
             ByteSend = InputRight;
